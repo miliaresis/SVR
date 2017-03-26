@@ -1,7 +1,7 @@
 # SVR
 1. **Selective Variance Reduction (SVR)**: used for the elevation, latitude longitude decorrelation stretch of biophysical datasets (eg. LST, DayMET-p). A win python program consiting of 3  modules **svr_mg.py** [ MAIN PROGRAM MODULE ], and the 2 Library MODULEs **svr_data_headers**, & **svrmg_myf.py**. **YouTube video is available at https://youtu.be/CnZnPTXL8Cw **
 2. **Data**: https://www.dropbox.com/s/vhte75jrstk9e3h/_data_svr_mg.zip?dl=0  a win zipped (168 Mbytes) file with 3 datasets. Each dataset includes Elevation, Latitude, Longitude, Mask, & the multi-temporal biophysical data  eg.  monthly averaged LST (data1),  annual precipitation files (data2), 8-day LST composites (data3). See the header files for details. 
-![Sample images - SVR processing] (https://www.dropbox.com/s/xcxmlffmnpwu739/github_svr.png?dl=0)
+* ![Sample images - SVR processing] (https://drive.google.com/file/d/0B93p5YtYzDe7SXQ2Q1NGYXRtSEk/view?usp=sharing)
 3. **Related publications**, in chronological order:
 * 1. Miliaresis G. 2017.  Iterative Selective Spatial Variance Reduction of MYD11A2 LST Data. Earth Science Informatics 10(1): 15-27 , DOI: 10.1007/s12145-016-0271-5  Available for free read from Springer Nature at http://rdcu.be/kosp 
 * 2. Miliaresis G. 2016.  Spatial decorrelation stretch of annual (2003-2014) Daymet precipitation summaries on a 1-km grid for California, Nevada, Arizona and Utah. Environmental Monitoring & Assessment, 188 (article 361) 1-21 DOI: 10.1007/s10661-016-5365-5. Available for free read from Springer Nature at http://rdcu.be/nrdt 
