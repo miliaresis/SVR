@@ -1,0 +1,363 @@
+3 modules 
+      svr_mg.py        [ MAIN PROGRAM MODULE ]
+      svr_data_headers [ Library MODULE ]
+      svrmg_myf.py     [ Library MODULE ]
+
+_________________________________________________________________________________
+Help on module svr_mg:
+
+NAME
+    svr_mg - Created on Sat Mar 26 18:31:16 2016
+
+DESCRIPTION
+    @author: gmiliar (George Ch. Miliaresis)
+    Selective Variance Reduction by George Ch.Miliaresis
+    Ver. 2016.02 (winpython implementation, https://winpython.github.io/)
+    Details in http://miliaresis.tripod.com
+               https://sourceforge.net/u/miliaresis/profile/
+           and Environmental Image Analysis Course
+               https://dl.dropboxusercontent.com/u/16217596/webOctave/_octave.html
+    ------------------------------------------------------------------------------
+    TO LOAD your data, define an appropriate header for example dataLST in file
+              svr_data_headers.py.
+    For HELP see the comments in FUNCTION Processing_constants  within the
+              file svrmg_myf.py, as well as the HELP.txt & the files
+              MODIS_LST01data_Link.txt & DAYMET_Pdata_Link.txt (comments included)
+              as well as the comments in function phead (file: svr_data_headers.py)
+    THEN return here and in  the main body of this progam (2nd function call)
+              and CHANGE the NAME of the 2nd function from data_headers.dataLST to
+              data_headers.XYZXY (XYZXY is the name of your data header) otherwise
+              the data header dataLST will be used and the files within a subdir
+              named data will be processed
+    ------------------------------------------------------------------------------
+
+DATA
+    FigureLabels = ['LST, deg. Celsius', 'Longitude, deg.', 'Latitude, deg...
+    GeoExtent = [-124, -112, 32, 44]
+    LDatadir = 'data'
+    LabelHLatLonLST = ['H', 'Lat', 'Lon', 'J', 'F', 'M', 'A', 'M', 'J', 'J...
+    LabelLST = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'...
+    LabelLSTxls = ['January', 'February', 'March', 'April', 'May', 'June',...
+    Lmax = 40
+    Lmin = -30
+    Rmax = 15
+    Rmin = -15
+    Tiffimporttype = 'PIL'
+    cluster_method = 'Kmeans refined by NBG'
+    clustering_options = ['Kmeans', 'Kmeans refined by NBG']
+    col = 240
+    continue1 = 'yes'
+    data = array([[  1.00000000e+00,   2.02000000e+02,   4....800049e+01, ...
+    row = 240
+    tiff_import_options = ['PIL', 'SKITimage']
+    vectorsfile = 'd.csv'
+
+FILE
+    c:\users\gmiliar\dropbox\public\scipy\svr_pymg\svr_mg.py
+_________________________________________________________________________________
+
+Help on module svr_data_headers:
+
+NAME
+    svr_data_headers - Created on Mon May  9 16:37:09 2016
+
+DESCRIPTION
+    @author: gmiliar (George Ch. Miliaresis)
+    Selective Variance Reduction by George Ch.Miliaresis
+    Ver. 2016.02 (winpython implementation, https://winpython.github.io/)
+    Details in http://miliaresis.tripod.com
+               https://sourceforge.net/u/miliaresis/profile/
+           and Environmental Image Analysis Course
+               https://dl.dropboxusercontent.com/u/16217596/webOctave/_octave.html
+
+FUNCTIONS
+    data8dayLST(clustering_options, tiff_import_options)
+        8-day LST data, 1-km, SW USA, MODLAND Integerized Sinusoidal Grid
+    
+    dataDAYMET(clustering_options, tiff_import_options)
+        Annual DAYMET precipitation data, 1-km, SW USA
+    
+    dataLST(clustering_options, tiff_import_options)
+        MODIS AQUA 2007 night, monthly averaged LST
+    
+    phead(xy, ML, row, col, x, x2, x3, Lmn, Lmx, Rmn, Rmx, vfile, LDIR, T, cm)
+        PRINT DATA HEADER.
+         DATA files are in a subdir named eg. data, data2, in the dir where the
+         3 scripts are stored. If a vector data file is used rows & cols of the
+         initial images are required for image from vector reconstruction (other
+         wise the rows & cols supplied in data header, are overwritten by those
+         read from image files).
+        The vector representation (csv file) of tif images
+         1st column = vector ID (both data/no-data) are numbered in sequential
+            order with ids.Then no data pixels are removed.During reconstruction
+            for image creation,missing ids are considered as no-data pixels.
+          2, 3, 4 columns = H, LAT, LON
+          5- .... columns = multi-temporal data
+          In vector representation, each CSV column is an image
+        The tif image filenames in the data dir, are fixed :
+          MASK, DEM, LAT (for y or latitude), LON (for X or longitude) and
+          01, 02, 03, .....11, 12 .... THE NAMES ARE CASE SENSITIVE and they are
+          determined automatically from the script (as well as the dimension of
+          the feature space -> length of tics list), so you should preserve them
+          in your data dir.
+
+FILE
+    c:\users\gmiliar\dropbox\public\scipy\svr_pymg\svr_data_headers.py
+
+_________________________________________________________________________________
+
+Help on module svrmg_myf:In [34]: 
+
+NAME
+    svrmg_myf - Created on Sun Mar 27 09:22:48 2016
+
+DESCRIPTION
+    @author: gmiliar (George Ch. Miliaresis)
+    Selective Variance Reduction by George Ch.Miliaresis
+    Ver. 2016.02 (winpython implementation, https://winpython.github.io/)
+    Details in http://miliaresis.tripod.com
+               https://sourceforge.net/u/miliaresis/profile/
+           and in Environmental Image Analysis Course
+               https://dl.dropboxusercontent.com/u/16217596/webOctave/_octave.html
+
+FUNCTIONS
+    BIC_no_of_clusters_select(X, maxIC, f)
+        Cluster number assessment by BIC score (Gaussian mixture model)
+    
+    CreateMask_fromCluster(c)
+        Create mask matrix from cluster image matrix
+    
+    ImplementSVR_MG(data, Labelmonth1, f)
+        main cals to SVT_MG
+    
+    Kmeans_init(number_of_clusters)
+        Kmeans initialization
+    
+    ListdefineforaxisX(k)
+        define list for X axis labels (inertia graph)
+    
+    MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelHLatLonLST, LabelLST, LabelLSTxls, Hmin, Hmax, HRmin, HRmax, Clustering_method, clustering_options)
+        Main run module of SVR-mg.py
+    
+    Processing_constants()
+        Alternative clustering & tif import options.
+            There are various options for TIFF import. The methods included are
+        available in the default library available in WinPython. See function
+        tiff_to_np in svrmg_myf for the specific calls.
+        If    PIL  then Image from PIL is used
+              SKITimage  then skimage.io is used
+        The problems encountered has to do with the files format. For example
+             Some libraries "do not like"" the 1 bit or even 1/2 bytes
+             integers MASK image. Some others library "do not like" many
+             bytes per pixel, or even signed real values (FLOAT).
+        THE PROBLEM is solved with SKIimage.io that allows float tif matrix
+        import but all the files should include matrices (pixels) that are of
+        FLOAT type. This is valid even for the mask image that is actually a
+        0/1 matrix. If your mask image pixel depth is 1-bit, or 1 byte or 2
+        byte integers instead of float, data files will not be imported if you
+        use SKIimage.io.
+        PIL is used for LST images since due to data value range (LAT,LON, LST,
+        H) are handled ok by PIL. In this case, you do not have to convert Mask
+        image to float. PIL might not be used for DayMET data due to the value
+        range of X and Y [in a newer version of these libraries, this situation
+        might be changed].
+        CLUSTERING - CLASSIFICATION OPTIONS:
+        These are the clustering options:
+            Kmeans -> K-means clastering
+            Kmeans clustering refined by Naive Bayes Gaussian classification
+            etc., etc.
+    
+    RLST_crosscorrelation(data, RLST, Labelmonth1, f)
+        Cross correlation matrix for RLSTs
+    
+    Reconstruct_matrix(evmat, Scores, Resimage1, Resimage2)
+        Inverse transformation with use of 2 residual images & the rest PCs
+    
+    Scoresmatrix(LST, evmat)
+        Compute PC scores
+    
+    centroids_visualize(data, figuretitle, Lx, MDLabel)
+        Visualize centroids
+    
+    clusterRefineNBG(CM, centroid, iteration, centroid_variance, bb)
+        Clustering refinements by NBG,
+        display mean standardized divergence (n*n)-n, n=clusters
+    
+    clustering_Kmeans(data, LabelLST, maxC, maxNBG, f, FigureLabels, Clustering_method)
+        Kmeans clustering
+    
+    clustering_Kmeans_by_NBG(data, ML2, maxC, maxNBG, f, MDLabel, Clustering_method)
+        Kmeans clustering refined by NBG -density, display mean divergence
+    
+    compute_descriptive_stats(RLST, x, lst_or_rlst)
+        compute mean, st.dev, kurtosis, skew
+    
+    compute_inertia(data, Inertia_iterations, f)
+        Main call to function that computes inertia
+    
+    covariance_matrix(LST2)
+        Compoute variance-covariance matrix
+    
+    create_data_files(data)
+        Read data file, create sub-matrices
+    
+    creatematrix(rows, cols, ids, labels)
+        vector to image matrix
+    
+    crosscorrelate(LST)
+        compute the crosscorrelation matrix
+    
+    data_imv_read(row, col, vectordfile, LfilesDIR, featuredimension, T)
+        Main Data FILE (individual images or vector file read)
+    
+    descriptive_stats_RLST(data, LABELmonths3, Lx, f, lst_or_rlst)
+        Compute, display & save to xlsx descriptive statistics for RLST
+    
+    display_LST(rows, cols, xyrange, data, x, f, MDLabel)
+        display LST images and save to png/tiff files
+    
+    display_RLST(rows, cols, xyrange, data, RLST, x, f, MDLabel)
+        display RLST images and save to png/tif files
+    
+    display_save_clusterimage(rows, cols, xyrange, data, labels, f, w, MDLabe)
+        covert vector cluster labels to image, plot &  save as csv, mat, tif
+    
+    display_save_maskimage(xyrange, c, MDLabel)
+        covert vector cluster labels to image, plot &  save as csv, mat, tif
+    
+    dummyvar_fcheck()
+        assign dummy variables if file donot exist (to exit from return var
+    
+    filenames_of_images(k)
+        Defines the filenames of images  MASK, DEM, LAT, LON, 01, 02, 03 .....
+        Accuracy aspects: RLST is the deviation in deg. Celsius from the expected
+        LST. If LST is derived from MODIS, you might assume that one decimal digit
+        is ok ! On the othe hand in a vector csv file usually lat, lon, (in decimal
+        degrees) & h (in m) are stored with LST and with a common number of digimal
+        digits (by default). So you might preserve 4 or more  degical digits
+        dependning on the positional accuracy you want to preserve.
+        In the case of precipitation (DayMET) given in mm per sq. m., one decimal
+        point is ok since the positional accuracy (X,Y) is given in meters.The data
+        is projected instead of the geographic lat/lon grid used for MODIS LST at
+        the CMG-climate modelling grid).
+    
+    findcreatenewpath()
+        Creates a new (non exisiting) path within the data/script-path where
+        the output files are stored. The path name is .......\outX where X is
+        a number determined automatically by the this script
+    
+    findpaths_data2csv(data)
+        find-define newpath to store the outputs, change to newpath data dir &
+        Write vector data matrix to a csv file within the newpath dir
+    
+    historyfile()
+        Track (save to file) the user inputs and the file outputs
+    
+    implementregression(H, LAT, LON, Scores)
+        implement the multiple linear regression for PC1, PC2
+    
+    input_screen_int(xstring, xmin, xmax)
+        input an integer X from screen in the range min<=X<=xmax
+    
+    input_screen_str_yn(xstring)
+        input a string X from screen y, Y, n, N
+    
+    linear_regression(x, y)
+        Normal equations solving
+    
+    mapinertia(Reconstruct, MaxIterations)
+        Graph inertia for Kmeans]
+    
+    matrixforregression(H, LAT, LON, y1)
+        Create matrices for regression
+    
+    pcanew(LST)
+        compute eigevalues, & eigenvectors
+    
+    plotmatrix(c, xyrange, lut, name1, yesno, MDLabel)
+        plot a matrix
+    
+    print2dscatters(RLST, x, f)
+        Print all pairwise correlations of 2-d RLST scatterograms
+    
+    print2dscattersHLATLON_LST(RLST, data, x, f)
+        Print H, LAT, LON versus LST combinations of 2-d scatterograms
+    
+    print2dscattersLST(RLST, x, f)
+        Print H, LAT, LON versus LST combinations of 2-d scatterograms
+    
+    printHST(RLST, Fstring, xmin, xmax, x, f, MDLabel)
+        print histogram of LST/RLST
+    
+    printNPP(RLST, x, f, lst_or_rlst)
+        print normal propability plot
+    
+    printRLST_correlation(data, x)
+        write RLST cross correlation matrix  to xls file
+    
+    prn_xls_centroids(workbook, Centroids, LabelLST)
+        write Centroids matrix to a sheet of an excel workbook
+    
+    prn_xls_cluster_membership(workbook, CLlabels)
+        compute & write cluster membership to excell file
+    
+    prn_xls_divergence(workbook, Diverg)
+        write Divergence matrix to a sheet of an excel workbook
+    
+    prn_xls_sigma(workbook, sigma, LabelLST)
+        write Sigma matrix to a sheet of an excel workbook
+    
+    prnxls_confuse(workbook, data2)
+        Add confusion matrix to an xls sheet within a workbook
+    
+    program_constants()
+        program constants (you might increase them according to your needs)
+        I = Maximum possible iterations (Clusters) for inertia computation as well
+            as for BIC score for full covariance (GMM) computation
+        maxC = Maximum number of clusters
+        maxNBG =  Maximum number of NBG refinements
+    
+    readdatafiles(filename, rows1, cols1, continue1, T)
+        Read SVR 2-d tif file &  convert it 1-dto numpy array
+    
+    readdatafiles0(filename, continue1, T)
+        Read SVR 2-d tif file &  convert it 1-dto numpy array
+    
+    readimagetiff(Ldatafiles, T)
+        "Read individual tiff images - convert data
+    
+    saveClusterLabels_to_vectors(f, Labels)
+        Saves cluster membership as vectors to a csv file
+    
+    savematrix2image(c, name1)
+        save image to matlab, tif & csv files
+    
+    savepcamatrices_csv(evs_per, crosscorrelation, covmat, evs, evmat)
+        save PCA matrices to CSV files
+    
+    sortdescent(evs, evmat)
+        sort eigenvalues-eigenvectors in descenting eigenvalue magnitude
+    
+    standardize_matrix2(A)
+        standardize a 2-d matrix per columns
+    
+    tiff_to_np(filename, T)
+        Read/Import tiff file - various options are tested
+    
+    translatebymean(LST)
+        Translate a matrix by mean (per columns)
+    
+    write2classconvergece(a, iteration)
+        Save mean inertia convergence to xlsx file
+    
+    write2excelinertia(Iterations, a)
+        Save mean inertia convergence to xlsx file
+    
+    xlspca(data, data1, data2, data3, x)
+        write correlation matrix, eigen-vectors/values to xls file
+    
+    xlstheta(theta1, theta2)
+        write regreesion coefficients to xls file
+
+FILE
+    c:\users\gmiliar\dropbox\public\scipy\svr_pymg\svrmg_myf.py
