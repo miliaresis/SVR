@@ -9,4 +9,9 @@
 * 5. Miliaresis G., 2016.  NDVI signatures of regional in time and in space thermal anomalies in SW USA. Spatial Information Research, 24(3), 267-277 DOI: 10.1007/s41324-016-0028-8. Available for free read from Springer Nature at http://rdcu.be/no6V 
 * 6. Miliaresis G., 2014. Daily Temperature Oscillation Enhancement of Multi-temporal LST Imagery. Photogrammetric Engineering & Remote Sensing 80(5)423-428 DOI:  10.14358/PERS.80.5.423
 * 7. Miliaresis G., 2014, Spatiotemporal patterns of land surface temperature of Antarctica from MODIS Monthly LST data (MYD11C3). Journal of Spatial Science, 59(1)157-166 : DOI: 10.1080/14498596.2013.857382
-* 8. Miliaresis G., 2014. Global LST Anomaly Mapping from MODIS Night Imagery. Malaysian Journal of Remote Sensing & GIS, 3(1),  1-9. DOI: http:/dx.doi.org/10.6084/m9.figshare.1004819
+* 8. Miliaresis G., 2014. Global LST Anomaly Mapping from MODIS Night Imagery. Malaysian Journal of Remote Sensing & GIS, 3(1),  1-9. Available for free at DOI: http:/dx.doi.org/10.6084/m9.figshare.1004819
+* 9. Miliaresis G., 2013. Terrain analysis for active tectonic zone characterization, a new application for MODIS night LST (MYD11C3) dataset. International Journal of Geographical Information Science, 27(7):1417-1432 p., doi: 10.1080/13658816.2012.685172. 
+* 10. Miliaresis G., 2013. Thermal anomaly mapping from night MODIS imagery of USA, a tool for environmental assessment. Environmental Monitoring & Assessment 185(2):1601-1612, doi: 10.1007/s10661-012-2654-5
+* 11. Miliaresis G., 2012. Elevation, latitude and longitude decorrelation stretch of multi-temporal near-diurnal LST imagery. International Journal of Remote Sensing, 33(19):6020-6034, doi: 10.1080/01431161.2012.676690.
+* 12. Miliaresis, G., 2012. Selective variance reduction of multi-temporal LST imagery in the East Africa Rift System.Earth Science Informatics 5(1):1-12 doi:10.1007/s12145-011-0091-6
+* 13. Miliaresis G., 2012. Elevation, latitude/longitude decorrelation stretch of multi-temporal LST imagery. Photogrammetric Engineering & Remote Sensing, 78(2):151-160. doi: 10.14358/PERS.78.2.151
