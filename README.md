@@ -24,3 +24,7 @@
 1. Miliaresis G., 2012. Elevation, latitude/longitude decorrelation stretch of multi-temporal LST imagery. Photogrammetric Engineering & Remote Sensing, 78(2):151-160. doi: 10.14358/PERS.78.2.151
 1. Miliaresis, G., 2012. Selective variance reduction of multi-temporal LST imagery in the East Africa Rift System.Earth Science Informatics 5(1):1-12 doi:10.1007/s12145-011-0091-6
 * LST terrain characterization
+1. Miliaresis G., 2009. Regional thermal and terrain modeling of the Afar Depression from multi-temporal night LST data. Int. J. of Remote Sensing, 30(9):2429–2446, doi:10.1080/01431160802562271
+1. Miliaresis G., Partsinevelos P., 2010. Terrain Segmentation of Egypt from Multi-temporal Night LST Imagery and Elevation Data. Remote Sensing, 2(9):2083-2096. doi:10.3390/rs2092083 
+1. Miliaresis G. and K.ST. Seymour, 2011. Mapping the spatial & temporal SST variations in Red Sea, revealing a probable regional geothermal anomaly from Pathfinder V5 data. Int. J. of Remote Sensing, 32(07):1825-1842. doi: 10.1080/01431161003631568 
+1. Zouzias D., Miliaresis G., Seymour, K.ST. 2011. Probable regional geothermal field reconnaissance in the Aegean Region from modern multi-temporal night LST imagery. Environmental Earth Sciences, 62(4):717-723 doi:10.1007/s12665-010-0560-0
