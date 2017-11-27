@@ -1,13 +1,5 @@
-One option is to download the LST precipitation data is to follow the link:
-https://dl.dropboxusercontent.com/u/16217596/scipy/_bu_not_erase_used_by_web_page/_data_svr_mg.zip
-
-The zipped data file is also available from sourceforge (files in the SVR_py project).
-
-It includes 3 directories
-   DATA  (for LST monthly example)
-   DATA2 (for DAYMET precipitation example)
-   DATA3 (for LST 8-day example)
-_______________________________________________________________________________________________
+The zipped data file (for LST monthly example) is also available from sourceforge (files in the SVR_py project).
+   D  ________________________________________________________
 ---> MODIS AQUA 2007 night, monthly averaged LST
 Labels for x-axis, y-axis of images/histograms:
          ['LST, deg. Celsius', 'Longitude, deg.', 'Latitude, deg.']
@@ -48,28 +40,14 @@ Around local solar time 01:30 (night), and 13:30 (day)  LST data are acquired fr
  on board the Aqua polar orbiting satellite (MYD11C2 2016). The LST accuracy according to Wan (2014) 
 is better than 1K (0.5 K in most cases) under real clear-sky conditions. Data from real clear-sky 
 conditions within a calendar month are averaged to yield the MYD11C2 product (Wan 2013). 
-The data set provide a continuous (monthly averaged LST) sampling of the earth’s surface with a spatial
+The data set provide a continuous (monthly averaged LST) sampling of the earthâ€™s surface with a spatial
 resolution of 3 minutes (0.05 degrees, corresponding to 5.6 km approximately at the equator) 
 referenced to a geographic latitude/longitude grid, with WGS 84 being the horizontal datum (MYD11C2 2016). 
 Wan, Z., 2013. Collection-6, MODIS Land Surface Temperature Products. Users' Guide.  University of 
       California, Santa Barbara. 
 http://www.icess.ucsb.edu/modis/LstUsrGuide/MODIS_LST_products_Users_guide
-Wan, Z., 2014. “New refinements and validation of the Collection-6 MODIS land-surface temperature/emissivity 
-      products”. Remote Sensing of Environment 140: 36-45. 
+Wan, Z., 2014. â€œNew refinements and validation of the Collection-6 MODIS land-surface temperature/emissivity 
+      productsâ€. Remote Sensing of Environment 140: 36-45. 
 MYD11C2, 2016. Aqua-MODIS monthly LST imagery, version 006. http://e4ftl01.cr.usgs.gov/MOLA/MYD11C2.006/ 
-_______________________________________________________________________________________________
-[Data: LST & DAYMET: tif images & csv file (zip)]:  
-The data (tif imagess and/or  vectors csv file) are within direcctory data2 (unzip the data file).
-Due to pixel values range (for X and Y) , the SKIimage.io module is used for tif images import 
-(in svr_mg.py USE AT THE TOP-> from svr_data_headers import dataDAYMET - INSTEAD OF-> 
-from svr_data_headers import dataLST).  
-Notice also the dataDAYMET header in module svr_data_headers.py  
-Due to SKIimage requirements the tiff files should include  image matrices of FLOAT data type.
-This is valid even for the mask image that is actually a 0/1 matrix. 
-If your mask image pixel depth is 1-bit, or 1 byte or 2 bytes integer instead of float, 
-data files will not be imported. 
-For LST data the value ranges  of every image (LAT, LON, LST) are not so great so the 
-PIP tiff import  is used. If you use SKIimage for LST data too, then all images 
-(MASK, LST, etc.) should be of float type.
 
 
