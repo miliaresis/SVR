@@ -1,5 +1,4 @@
-The zipped data file (for LST monthly example) is also available from sourceforge (files in the SVR_py project).
-   D  ________________________________________________________
+The zipped data file (for monthly LST example) is also available from sourceforge (files in the SVR_py project).
 ---> MODIS AQUA 2007 night, monthly averaged LST
 Labels for x-axis, y-axis of images/histograms:
          ['LST, deg. Celsius', 'Longitude, deg.', 'Latitude, deg.']
