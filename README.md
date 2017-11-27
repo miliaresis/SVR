@@ -1,7 +1,7 @@
 # SVR
 1. **Selective Variance Reduction (SVR)**: It is used for the elevation, latitude longitude decorrelation stretch of biophysical datasets (eg. LST, DayMET-p), etc., etc. A win python program consiting of 3  modules **svr_mg.py** [ MAIN PROGRAM MODULE ], and the 2 Library MODULEs **svr_data_headers**, & **svrmg_myf.py**.
 2. **A YouTube video** is available at https://youtu.be/CnZnPTXL8Cw 
-3. **Data**: https://www.dropbox.com/s/vhte75jrstk9e3h/_data_svr_mg.zip?dl=0  a win zipped (168 Mbytes) file with 3 datasets. Each dataset includes Elevation, Latitude, Longitude, Mask, & the multi-temporal biophysical data  eg.  monthly averaged LST (data1),  annual precipitation files (data2), 8-day LST composites (data3). See the header files for details. 
+3. **Data**:  includes Elevation, Latitude, Longitude, Mask, &  monthly averaged LST (data1.zip). See the header files for details. 
 ![Example of output images](https://github.com/miliaresis/SVR/blob/master/github_svr.png)
 # **Selected publications**
 * **Modeling the precipitation effect on LST**
