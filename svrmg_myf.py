@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Mar 27 09:22:48 2016
+Created on Wed Jan 3 07:07:24 2018
 
 @author: gmiliar (George Ch. Miliaresis)
 Selective Variance Reduction by George Ch.Miliaresis
-Ver. 2016.02 (winpython implementation, https://winpython.github.io/)
-Details in http://miliaresis.tripod.com
+Ver. 2018.01 (winpython implementation, https://winpython.github.io/)
+Details in https://github.com/miliaresis/SVR
            https://sourceforge.net/u/miliaresis/profile/
-       and in Environmental Image Analysis Course
-           https://dl.dropboxusercontent.com/u/16217596/webOctave/_octave.html
+       and my web pages:  https://about.me/miliaresis
+           https://sites.google.com/site/miliaresisg/
 """
 import numpy as np
 
@@ -604,43 +604,6 @@ def Kmeans_init(number_of_clusters):
     return clf
 
 
-def mapinertia(Reconstruct, MaxIterations):
-    """Graph inertia for Kmeans]"""
-    import matplotlib.pyplot as plt
-    print('\n         Visualize mean inertia by Kmeans')
-    Iterations = input_screen_int('    Number of iterations', 6, MaxIterations)
-    Lx = ListdefineforaxisX(Iterations)
-    print('\n    Clusters per iteration:\n         ', Lx, '\n')
-    x = np.arange(0, Iterations, 1)
-    a = np.zeros(shape=(Iterations))
-    for i in range(Iterations):
-        clf = Kmeans_init(i+2)
-        X = clf.fit(Reconstruct)
-        a[i] = X.inertia_ / Reconstruct.shape[0]
-        print('          inertia: %.2f clusters: %.0f' % (a[i], i+2))
-    write2excelinertia(Iterations, a)
-    plt.figure(1)
-    plt.xticks(x, Lx)
-    plt.plot(a)
-    plt.xlim([0, Iterations-1])
-    plt.xlabel('Number of clusters', fontsize=12, color='b')
-    plt.ylabel('Mean Inertia', fontsize=12, color='b')
-    plt.title('KMeans Clustering', fontsize=15, color='r')
-    plt.savefig('Inertia.png', dpi=300)
-    plt.show(1)
-    plt.close("all")
-
-
-def compute_inertia(data, Inertia_iterations, f):
-    """Main call to function that computes inertia """
-    XX = input_screen_str_yn('    Compute & plot INERTIA ? ')
-    if XX == 'Y' or XX == 'y':
-        mapinertia(data, Inertia_iterations)
-        f.write('\n Inertia computation')
-        f.write('\n      Excel file: convergence_inertia.xlsx')
-        f.write('\n      png file: Inertia.png')
-
-
 def centroids_visualize(data, figuretitle, Lx, MDLabel):
     """Visualize centroids"""
     import matplotlib.pyplot as plt
@@ -713,6 +676,7 @@ def clustering_Kmeans_by_NBG(data, ML2, maxC, maxNBG, f, MDLabel,
     print('\nClustering refined by NBG (display standardized mean divergence)')
     print('\n   1st: K-means clustering ')
     Nofclusters = input_screen_int('       Number of clusters', 2, maxC)
+    maxNBG = input_screen_int('       Number of NBG iterations', 5, maxNBG)
     clf = Kmeans_init(Nofclusters)
     X = clf.fit(data)
     Nofrefine = maxNBG
@@ -845,7 +809,7 @@ def display_save_clusterimage(rows, cols, xyrange, data, labels, f, w, MDLabe):
     c = creatematrix(rows, cols, ids, labels)
     print('\nVisualize cluster image')
     f.write('\n   VISUALIZE cluster image & save to Clusters.png')
-    plotmatrix(c, xyrange, 'spectral', w, 'y', MDLabe)
+    plotmatrix(c, xyrange, 'nipy_spectral', w, 'y', MDLabe)
     savematrix2image(c, 'Clustermap')
     f.write('\n        Save to Clustermap.tif, & Clustermap.mat')
     display_save_maskimage(xyrange, c, MDLabe)
@@ -1073,49 +1037,6 @@ def printRLST_correlation(data, x):
     workbook.close()
 
 
-def BIC_no_of_clusters_select(X, maxIC, f):
-    """ Cluster number assessment by BIC score (Gaussian mixture model) """
-    XX = input_screen_str_yn('    Cluster assessment by BIC score ? ')
-    if XX == 'Y' or XX == 'y':
-        print('\n        BIC score for clusters number-Gaussian mixture model')
-        f.write('\n        Clusters number assessment by BIC score (GMM)')
-        maxClusters = input_screen_int('        Number of clusters', 6, maxIC)
-        maxClusters = maxClusters + 1
-        import matplotlib.pyplot as plt
-        from sklearn import mixture
-        lowest_bic = np.infty
-        bic = []
-        print('          Clusters         BIC')
-        n_components_range = range(1, maxClusters)
-        for n_components in n_components_range:
-            gmm = mixture.GMM(n_components=n_components,
-                              covariance_type='full')
-            gmm.fit(X)
-            bic.append(gmm.bic(X))
-            print('              ', n_components+1, '     ', bic[len(bic)-1])
-            if bic[-1] < lowest_bic:
-                lowest_bic = bic[-1]
-        bic = np.array(bic)
-        bars = []
-        plt.figure(1)
-        xpos = np.array(n_components_range)
-        bars.append(plt.bar(xpos, bic[0: len(n_components_range)], width=.2,
-                            color='b'))
-        plt.xticks(n_components_range)
-        plt.ylim([bic.min() * 1.01 - .01 * bic.max(), bic.max()])
-        plt.title('BIC score for full covariance model', fontsize=12,
-                  color='b')
-        xpos = np.mod(bic.argmin(), len(n_components_range)) + .65 +\
-            .2 * np.floor(bic.argmin() / len(n_components_range))
-        plt.text(xpos, bic.min() * 0.97 + .03 * bic.max(), 'v', fontsize=15)
-        plt.xlabel('Iteration: no of clusters-1', fontsize=12, color='b')
-        plt.savefig('__BIC_gmm.png', dpi=300)
-        plt.show(1)
-        plt.close("all")
-        f.write('\n         BIC score (GMM) saved to BIC_gmm.png')
-        print('\n         BIC score (GMM) saved to BIC_gmm.png')
-
-
 def RLST_crosscorrelation(data, RLST, Labelmonth1, f):
     """ Cross correlation matrix for RLSTs"""
     Dyesno2 = input_screen_str_yn('R(data) cross correlation? ')
@@ -1140,18 +1061,6 @@ def saveClusterLabels_to_vectors(f, Labels):
         print('\n    Saved clusters vector map to Labels.csv \n')
         f.write('\n    Save cluster vector map to Labels.csv')
         np.savetxt('Labels.csv', Labels, fmt='%.0f', delimiter=',')
-
-
-def Cluster_no_evaluate(Reconstruct, In, f):
-    """ Cluster number evaluation techniques (Inertia, BIC(GMM), Silluete """
-    print('\n________________________________________________________________')
-    Cluster_assess = input_screen_str_yn('No of Clusters assessment-slow ? ')
-    if Cluster_assess == 'Y' or Cluster_assess == 'y':
-        print('\nStandard data generalization/optimization tehniques could be'
-              '\n      mis-leading for physical processes dependent data-sets')
-        compute_inertia(Reconstruct, In, f)
-        BIC_no_of_clusters_select(Reconstruct, In, f)
-    print('\n________________________________________________________________')
 
 
 def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelHLatLonLST,
@@ -1183,7 +1092,6 @@ def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelHLatLonLST,
                  FigureLabels)
         print2dscattersHLATLON_LST(Reconstruct, data, LabelLSTxls, f)
         print2dscatters(Reconstruct, LabelLSTxls, f)
-    Cluster_no_evaluate(Reconstruct, In, f)
     Cluster_yesno = input_screen_str_yn('Cluster R(data) ? ')
     if Cluster_yesno == 'Y' or Cluster_yesno == 'y':
         if Clustering_method in clustering_options:

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon May  9 16:37:09 2016
+Created on Wed Jan 3 07:07:24 2018
 
 @author: gmiliar (George Ch. Miliaresis)
 Selective Variance Reduction by George Ch.Miliaresis
-Ver. 2016.02 (winpython implementation, https://winpython.github.io/)
-Details in http://miliaresis.tripod.com
+Ver. 2018.01 (winpython implementation, https://winpython.github.io/)
+Details in https://github.com/miliaresis/SVR
            https://sourceforge.net/u/miliaresis/profile/
-       and Environmental Image Analysis Course
-           https://dl.dropboxusercontent.com/u/16217596/webOctave/_octave.html
+       and my web pages:  https://about.me/miliaresis
+           https://sites.google.com/site/miliaresisg/
 """
 
 
