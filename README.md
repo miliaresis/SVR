@@ -2,10 +2,10 @@
 1. **Selective Variance Reduction (SVR)**: It is used for the elevation, latitude longitude decorrelation stretch of biophysical datasets (eg. LST, DayMET-p), etc., etc. A win python program (https://winpython.github.io/) consiting of 3  modules **svr_mg.py** [ MAIN PROGRAM MODULE ], and the 2 Library MODULEs **svr_data_headers** (data headers), & **svrmg_myf.py** (functions).
 2. **A YouTube video** is available at https://youtu.be/CnZnPTXL8Cw 
 # Data:  
-Elevation, Latitude, Longitude, Mask, & (monthly or 8-day) LST or precipitation, at 5.5 km or 1 km, spatial resolution. 
-1. Miliaresis, George (2018), “Multi-temporal monthly 5.5 km LST data  for SW USA”, Mendeley Data, v8  doi:10.17632/mgr9ky9yj2.8
-2. Miliaresis, George (2018), “Daymet annual 1-km precipitation for SW USA”, Mendeley Data, v5 http://dx.doi.org/10.17632/n76h8kyrys.5
-3. Miliaresis, George (2018), “Multi-temporal 8-day 1-km LST data for SW USA”, Mendeley Data, v2 http://dx.doi.org/10.17632/5x2ysb9c3s.2
+Elevation, Latitude, Longitude, Mask, & LST (monthly or 8-day) or precipitation (annual), at 5.5 km or 1 km spatial resolution. 
+1. Miliaresis G. 2018. Multi-temporal monthly 5.5 km LST data for SW USA. Mendeley Data v8 http://dx.doi.org/10.17632/mgr9ky9yj2.8
+2. Miliaresis G. 2018. Daymet annual 1-km precipitation for SW USA. Mendeley Data, v5 http://dx.doi.org/10.17632/n76h8kyrys.5
+3. Miliaresis G. 2018. Multi-temporal 8-day 1-km LST data for SW USA. Mendeley Data, v2 http://dx.doi.org/10.17632/5x2ysb9c3s.2
 ![Example of output images](https://github.com/miliaresis/SVR/blob/master/github_svr.png)
 # **Selected publications**
 * **Modeling the precipitation effect on LST**
