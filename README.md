@@ -3,9 +3,9 @@
 2. **A YouTube video** is available at https://youtu.be/CnZnPTXL8Cw 
 # Data:  
 Elevation, Latitude, Longitude, Mask, & (monthly or 8-day) LST or precipitation, at 5.5 km or 1 km, spatial resolution. 
-1. Miliaresis, George (2018), 
+1. Miliaresis, George (2018), “Multi-temporal monthly 5.5 km LST data  for SW USA”, Mendeley Data, v8  doi:10.17632/mgr9ky9yj2.8
 2. Miliaresis, George (2018), “Daymet annual 1-km precipitation for SW USA”, Mendeley Data, v5 http://dx.doi.org/10.17632/n76h8kyrys.5
-3. Miliaresis, George (2018), 
+3. Miliaresis, George (2018), “Multi-temporal 8-day 1-km LST data for SW USA”, Mendeley Data, v2 http://dx.doi.org/10.17632/5x2ysb9c3s.2
 ![Example of output images](https://github.com/miliaresis/SVR/blob/master/github_svr.png)
 # **Selected publications**
 * **Modeling the precipitation effect on LST**
