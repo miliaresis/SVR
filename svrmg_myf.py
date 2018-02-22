@@ -832,7 +832,7 @@ def display_RLST(rows, cols, xyrange, data, RLST, x, f, MDLabel):
         plotmatrix(c, xyrange, 'Greys', RLSTname, 'y', MDLabel)
         if Display_yesno3 == 'Y' or Display_yesno3 == 'y':
             scipy.misc.toimage(c, high=np.max(c), low=np.min(c),
-                               mode='I').save(RLSTname + '.tif')
+                               mode='F').save(RLSTname + '.tif')
             np.savetxt(RLSTname + '.csv', c, fmt='%.4f', delimiter=',')
 
 
