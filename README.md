@@ -7,12 +7,12 @@
       * Daymet annual 1-km precipitation for SW USA + Elevation, Latitude, Longitude & Mask data. Mendeley Data, v.5, DOI: http://dx.doi.org/10.17632/n76h8kyrys.5  
       * Multi-temporal 8-day 1-km LST data + Elevation, Latitude, Longitude & Mask data for SW USA. Mendeley Data, v2,  DOI: http://dx.doi.org/10.17632/5x2ysb9c3s.2 
 ![Example of output images](https://github.com/miliaresis/SVR/blob/master/github_svr.png)
-# **Selected publications**
-* **Modeling the precipitation effect on LST**
-1. Miliaresis G. 2017.  Iterative Selective Spatial Variance Reduction of MYD11A2 LST Data. Earth Science Informatics 10(1): 15-27 , DOI: 10.1007/s12145-016-0271-5  Available for free read from Springer Nature at http://rdcu.be/kosp 
-1. Miliaresis G., 2016. An Unstandardized Selective Variance Reduction Script for Elevation, Latitude & Longitude Decorrelation Stretch of  Multi-temporal LST Imagery. Modeling Earth Systems & Environment, 2, (1) (Article 41), 1-13 p. DOI: 10.1007/s40808-016-0103-0. Available for free  at http://link.springer.com/article/10.1007/s40808-016-0103-0
-1. Miliaresis G., 2016. Revealing the precipitation dependency of regional in time and in space thermal anomaly peaks in SW USA. Modeling Earth Systems & Environment, vol. 2, no 1 (article 34), 1-10 p. DOI: 10.1007/s40808-016-0093-y  Available for free at: http://link.springer.com/article/10.1007/s40808-016-0093-y
-1. Miliaresis G., 2016.  NDVI signatures of regional in time and in space thermal anomalies in SW USA. Spatial Information Research, 24(3), 267-277 DOI: 10.1007/s41324-016-0028-8. Available for free read from Springer Nature at http://rdcu.be/no6V 
+* **Selected publications**
+  * **Modeling the precipitation effect on LST**
+    1. Miliaresis G. 2017.  Iterative Selective Spatial Variance Reduction of MYD11A2 LST Data. Earth Science Informatics 10(1): 15-27 , DOI: 10.1007/s12145-016-0271-5  Available for free read from Springer Nature at http://rdcu.be/kosp 
+    1. Miliaresis G., 2016. An Unstandardized Selective Variance Reduction Script for Elevation, Latitude & Longitude Decorrelation Stretch of  Multi-temporal LST Imagery. Modeling Earth Systems & Environment, 2, (1) (Article 41), 1-13 p. DOI: 10.1007/s40808-016-0103-0. Available for free  at http://link.springer.com/article/10.1007/s40808-016-0103-0
+    1. Miliaresis G., 2016. Revealing the precipitation dependency of regional in time and in space thermal anomaly peaks in SW USA. Modeling Earth Systems & Environment, vol. 2, no 1 (article 34), 1-10 p. DOI: 10.1007/s40808-016-0093-y  Available for free at: http://link.springer.com/article/10.1007/s40808-016-0093-y
+    1. Miliaresis G., 2016.  NDVI signatures of regional in time and in space thermal anomalies in SW USA. Spatial Information Research, 24(3), 267-277 DOI: 10.1007/s41324-016-0028-8. Available for free read from Springer Nature at http://rdcu.be/no6V 
 * **Terrain standardization of precipitation**
 1. Miliaresis G. 2016.  Spatial decorrelation stretch of annual (2003-2014) Daymet precipitation summaries on a 1-km grid for California, Nevada, Arizona and Utah. Environmental Monitoring & Assessment, 188 (article 361) 1-21 DOI: 10.1007/s10661-016-5365-5. Available for free read from Springer Nature at http://rdcu.be/nrdt 
 * **Modelling DTR (diurnal temperature range)**
