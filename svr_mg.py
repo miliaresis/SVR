@@ -8,7 +8,7 @@ Ver. 2018.01 (winpython implementation, https://winpython.github.io/)
 Details in https://github.com/miliaresis/SVR
            https://sourceforge.net/u/miliaresis/profile/
        and my web pages:  https://about.me/miliaresis
-           https://sites.google.com/site/miliaresisg/
+            https://sites.google.com/site/miliaresisg/
 ------------------------------------------------------------------------------
 TO LOAD your data, define an appropriate header for example dataLST in file
           svr_data_headers.py.
@@ -34,7 +34,7 @@ clustering_options, tiff_import_options = Processing_constants()
 #  2nd FUNCTION CALL ---------------Selects the data file (header) to work with
 [GeoExtent, FigureLabels, row, col, LabelHLatLonLST, LabelLST, LabelLSTxls,
  Lmin, Lmax, Rmin, Rmax, vectorsfile, LDatadir, Tiffimporttype, cluster_method
- ] = svr_data_headers.data8dayLST(clustering_options, tiff_import_options)
+ ] = svr_data_headers.dataLST(clustering_options, tiff_import_options)
 #  3rd FUNCTION CALL -------------- IMPORTS the data files, creates the vectors
 data, row, col, continue1 = data_imv_read(row, col, vectorsfile, LDatadir,
                                           len(LabelLST), Tiffimporttype)
