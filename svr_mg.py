@@ -34,7 +34,7 @@ clustering_options, tiff_import_options = Processing_constants()
 #  2nd FUNCTION CALL ---------------Selects the data file (header) to work with
 [GeoExtent, FigureLabels, row, col, LabelHLatLonLST, LabelLST, LabelLSTxls,
  Lmin, Lmax, Rmin, Rmax, vectorsfile, LDatadir, Tiffimporttype, cluster_method
- ] = svr_data_headers.dataLST(clustering_options, tiff_import_options)
+ ] = svr_data_headers.data8dayLST(clustering_options, tiff_import_options)
 #  3rd FUNCTION CALL -------------- IMPORTS the data files, creates the vectors
 data, row, col, continue1 = data_imv_read(row, col, vectorsfile, LDatadir,
                                           len(LabelLST), Tiffimporttype)

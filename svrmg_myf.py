@@ -19,10 +19,9 @@ def program_constants():
         as for BIC score for full covariance (GMM) computation
     maxC = Maximum number of clusters
     maxNBG =  Maximum number of NBG refinements """
-    I = 29
     maxC = 100
     maxNBG = 500
-    return I, maxC, maxNBG
+    return maxC, maxNBG
 
 
 def Processing_constants():
@@ -1068,7 +1067,7 @@ def MainRun(data, rows, cols, GeoExtent, FigureLabels, LabelHLatLonLST,
             clustering_options):
     """ Main run module of SVR-mg.py"""
     f, oldpath = findpaths_data2csv(data)
-    In, maxC, mNBG = program_constants()
+    maxC, mNBG = program_constants()
     xyxstr = 'LST:Stats, Correlation, NPPS, Images, Histograms, Scatterplots? '
     Display_yesno2 = input_screen_str_yn(xyxstr)
     if Display_yesno2 == 'Y' or Display_yesno2 == 'y':
