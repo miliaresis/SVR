@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jan 3 07:07:24 2018
+Created on Wed Jan 3 07:07:24 2018, updated Nov. 7, 2018
 
 @author: gmiliar (George Ch. Miliaresis)
 Selective Variance Reduction by George Ch.Miliaresis
@@ -943,7 +943,7 @@ def printHST(RLST, Fstring, xmin, xmax, x, f, MDLabel):
         RLST = LST
     for X in range(RLST.shape[1]):
         plt.figure(1)
-        plt.hist(RLST[:, X], bins=200, range=[xmin, xmax], normed=True,
+        plt.hist(RLST[:, X], bins=200, range=[xmin, xmax], density=True,
                  edgecolor='blue')
         plt.title(x[X])
         plt.xlabel(MDLabel[0])

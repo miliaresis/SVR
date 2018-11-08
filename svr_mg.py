@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jan 3 07:07:24 2018
+Created on Wed Jan 3 07:07:24 2018, updated Nov. 7, 2018
 
 @author: gmiliar (George Ch. Miliaresis)
 Selective Variance Reduction by George Ch.Miliaresis
